@@ -3,16 +3,17 @@ var content;
 function createCards() {
     console.log("Function createCards executed");
     content = document.getElementById('content');
-    for (var i = 0; i < cardsData.length; i++){
+for (var i = 0; i < cardsData.length; i++){
         var singleCard = document.createElement('div');
-        singleCard.style.border = "solid 3px black";
-                //singleCard.className = "cardStyle";
+            singleCard.className = "cardStyle";
         var titleElem = document.createElement('div');
             titleElem.textContent = cardsData[i].title;
+            titleElem.className = "title" 
             //console.log(cardsData[i].title);
             //console.log(titleElem);    
         var descriptionElem = document.createElement('div');
             descriptionElem.textContent = cardsData[i].description;
+            descriptionElem.className = "description";
             //console.log(cardsData[i].description);
             //console.log(descriptionElem);
         var linkElem = document.createElement('button');

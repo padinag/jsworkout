@@ -1,3 +1,25 @@
 button {
-    background-color: aqua
+    background-color: lawngreen;
+}
+.title {
+    height: 100;
+    font-size: 20;
+    color: red;
+    background-color: azure;
+    position: sticky;
+    background-image: url("/Users/minibox/Downloads/images.jpeg");
+       }
+.cardStyle {
+    height: 250;
+    width: 300;
+    border-bottom-style: solid;
+    border-right-style: none;
+    border-left-style: none;
+}
+.description {
+    height: 50;
+    color: darkred;
+    text-shadow: 5px 5px 10px red;
+    fost-size: 15;
+        
 }
