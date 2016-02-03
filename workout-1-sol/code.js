@@ -17,7 +17,7 @@ for (var i = 0; i < cardsData.length; i++){
             //console.log(cardsData[i].description);
             //console.log(descriptionElem);
         var linkElem = document.createElement('button');
-        linkElem.textContent = "Open";
+        linkElem.textContent = "OPEN";
         linkElem.adinaCardDataIndex = i;
         
         linkElem.onclick = function() { 
