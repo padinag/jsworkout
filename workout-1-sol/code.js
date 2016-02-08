@@ -6,6 +6,8 @@ function createCards() {
 for (var i = 0; i < cardsData.length; i++){
         var singleCard = document.createElement('div');
             singleCard.className = "cardStyle";
+        var imageElem = document.createElement('div');
+            imageElem.className = "image" 
         var titleElem = document.createElement('div');
             titleElem.textContent = cardsData[i].title;
             titleElem.className = "title" 
@@ -25,11 +27,12 @@ for (var i = 0; i < cardsData.length; i++){
             window.open(cardsData[this.adinaCardDataIndex].url); 
         } 
         
+        singleCard.appendChild(imageElem);
         singleCard.appendChild(titleElem);
         singleCard.appendChild(descriptionElem);
         singleCard.appendChild(linkElem);
-
-        content.appendChild(singleCard);
+     
+    content.appendChild(singleCard);
     }   
 }
 

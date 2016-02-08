@@ -12,14 +12,16 @@ button:hover {
     color:azure;
 }
 
-
+.image {
+    height: 70;
+    width: 250;
+    background: url("/Users/minibox/Downloads/rain.jpg") top;
+    background-repeat: no-repeat; 
+}
 .title {
     font-size: 20;
-    color: white;
-    padding-top: 60px;
-    background-image: url("/Users/minibox/Downloads/rain.jpg");
-    background-repeat: no-repeat; 
-               }
+    color: black;
+    }
 .cardStyle {
     width: 250px;
     height: 180px;
