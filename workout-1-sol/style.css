@@ -15,7 +15,7 @@ button:hover {
 .image {
     height: 70;
     width: 250;
-    background: url("/Users/minibox/Downloads/rain.jpg") top;
+    background: url("rain.png") top;
     background-repeat: no-repeat; 
 }
 .title {
