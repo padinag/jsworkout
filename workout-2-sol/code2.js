@@ -1,16 +1,29 @@
+function getData(url) {
+    
+    var request = new XMLHttpRequest();
+    request.open('GET', url);
 
-var request = new XMLHttpRequest();
-request.open('GET', 'https://private-anon-2ee957f6e-rainmachine.apiary-mock.com/api/4/provision');
+    request.onreadystatechange = function () {
+      if (this.readyState === 4) {
+          //console.log('Status:', this.status);
+          //console.log('Headers:', this.getAllResponseHeaders());
+          //console.log('Body:', this.responseText);
+          displayData(this.responseText);    
+      }
+    }
+    request.send();    
+}
 
-request.onreadystatechange = function () {
-  if (this.readyState === 4) {
-      console.log('Status:', this.status);
-      console.log('Headers:', this.getAllResponseHeaders());
-      console.log('Body:', this.responseText);
-      var elem = document.getElementById('responses');
-      elem.textContent = this.responseText;
-  }
-};
+function displayData(t) {
+    var elem = document.getElementById('responses');
+    var o = JSON.parse(t);
+    console.log(o);
 
-request.send();
+    elem.innerHTML += o.location.name + '<br>' + o.system.netName;
 
+} 
+
+window.onload = function() { 
+    getData('https://private-anon-2ee957f6e-rainmachine.apiary-mock.com/api/4/provision'); 
+    
+}
