@@ -8,27 +8,36 @@ function getData(url) {
           //console.log('Status:', this.status);
           //console.log('Headers:', this.getAllResponseHeaders());
           //console.log('Body:', this.responseText);
-          getJSONobj(this.responseText);    
+          parseResponse(this.responseText);    
       }
     }
-    request.send();    
-}
-
-function getJSONobj(t) {
-    var elem = document.getElementById('responses');
-    var o = JSON.parse(t);
-    console.log(o);
-
-    //elem.innerHTML += o.location.name + '<br>' + o.system.netName;
-
-} 
-
-function displayData(location){
-    for (var name in location){
-        console.log(location.name);
-    }
-}
-window.onload = function() { 
-    getData('https://private-anon-2ee957f6e-rainmachine.apiary-mock.com/api/4/provision'); 
+    request.send();
     
 }
+
+function parseResponse(t) {
+    var o = JSON.parse(t);
+    console.log(o);
+    
+    if (o.hasOwnProperty("location") && o.hasOwnProperty("system")) {
+        displayProvision(o);
+    } else if (o.hasOwnProperty("programs")) {
+        displayPrograms(o);
+    }
+}  
+
+function displayProvision(o) {
+    var elemProvisions = document.getElementById('provision');
+    elemProvisions.innerHTML = o.location.name + '<br>' + o.system.netName;
+};
+
+function displayPrograms(o) {
+    var elemPrograms = document.getElementById('programs');
+    for (i = 0; i < o.programs.length; i++){
+        elemPrograms.innerHTML += o.programs[i].name;
+    }
+};
+window.onload = function() { 
+    getData('https://private-anon-2ee957f6e-rainmachine.apiary-mock.com/api/4/provision'); 
+    getData('https://private-anon-a14707c0a-rainmachine.apiary-mock.com/api/4/program');
+};
