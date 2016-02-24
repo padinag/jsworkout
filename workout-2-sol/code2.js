@@ -8,13 +8,13 @@ function getData(url) {
           //console.log('Status:', this.status);
           //console.log('Headers:', this.getAllResponseHeaders());
           //console.log('Body:', this.responseText);
-          displayData(this.responseText);    
+          getJSONobj(this.responseText);    
       }
     }
     request.send();    
 }
 
-function displayData(t) {
+function getJSONobj(t) {
     var elem = document.getElementById('responses');
     var o = JSON.parse(t);
     console.log(o);
@@ -23,6 +23,9 @@ function displayData(t) {
 
 } 
 
+function displayData(o){
+    
+}
 window.onload = function() { 
     getData('https://private-anon-2ee957f6e-rainmachine.apiary-mock.com/api/4/provision'); 
     
