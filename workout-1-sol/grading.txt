@@ -1,12 +1,3 @@
 100 points maximum
 
--10 points: Bad paragraphs on code.js. 
-	    Read: http://javascript.crockford.com/code.html
-	    Use: http://jsbeautifier.org/ to see an example on how it should be
-
--20 points: .title from style.css includes a local resource (rain.jpg) with absolute path which is not even added to git.
-	    It's preferable to use png format images
-	    Add resource to git and include it in your css by relative path (relative to index.html) eg: url("rain.jpg")
-
-
-Currently: 70 points
+Currently: 100 points
