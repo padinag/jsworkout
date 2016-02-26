@@ -23,6 +23,8 @@ function parseResponse(t) {
         displayProvision(o);
     } else if (o.hasOwnProperty("programs")) {
         displayPrograms(o);
+    } else {
+        refreshData(o);
     }
 }  
 
@@ -37,6 +39,17 @@ function displayPrograms(o) {
         elemPrograms.innerHTML += o.programs[i].name;
     }
 };
+
+function refreshData() {
+    var elemRefresh = document.getElementById('refresh');
+    elemRefresh.textContent = "Refresh";
+    elemRefresh.onclick = function() {
+       while(elemProvisions || elemPrograms){
+           
+       }
+    };
+}
+
 window.onload = function() { 
     getData('https://private-anon-2ee957f6e-rainmachine.apiary-mock.com/api/4/provision'); 
     getData('https://private-anon-a14707c0a-rainmachine.apiary-mock.com/api/4/program');
