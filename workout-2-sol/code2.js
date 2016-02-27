@@ -1,3 +1,4 @@
+
 function getData(url) {
     
     var request = new XMLHttpRequest();
@@ -11,8 +12,12 @@ function getData(url) {
           parseResponse(this.responseText);    
       }
     }
-    request.send();
-    
+    request.send();   
+}
+
+function getAllData() {
+    getData('https://private-anon-2ee957f6e-rainmachine.apiary-mock.com/api/4/provision'); 
+    getData('https://192.168.12.155:8080/api/4/program?access_token=5f7e3b1ea8fa3ecaa20607a2988f0a2477d25551db76e8dc3204582b');
 }
 
 function parseResponse(t) {
@@ -23,9 +28,7 @@ function parseResponse(t) {
         displayProvision(o);
     } else if (o.hasOwnProperty("programs")) {
         displayPrograms(o);
-    } else {
-        refreshData(o);
-    }
+    } 
 }  
 
 function displayProvision(o) {
@@ -35,22 +38,21 @@ function displayProvision(o) {
 
 function displayPrograms(o) {
     var elemPrograms = document.getElementById('programs');
+    elemPrograms.innerHTML = "";
     for (i = 0; i < o.programs.length; i++){
-        elemPrograms.innerHTML += o.programs[i].name;
+        elemPrograms.innerHTML += o.programs[i].name + "<br>";
+        var elemZones = document.createElement("div");
+        elemZones.innerHTML = "";
+        for (j = 0; j < o.programs[i].wateringTimes.length; j++){
+            elemZones.innerHTML += o.programs[i].wateringTimes[j].name + "<br>";
+            }
+        elemPrograms.appendChild(elemZones);
     }
 };
 
-function refreshData() {
-    var elemRefresh = document.getElementById('refresh');
-    elemRefresh.textContent = "Refresh";
-    elemRefresh.onclick = function() {
-       while(elemProvisions || elemPrograms){
-           
-       }
-    };
-}
-
 window.onload = function() { 
-    getData('https://private-anon-2ee957f6e-rainmachine.apiary-mock.com/api/4/provision'); 
-    getData('https://private-anon-a14707c0a-rainmachine.apiary-mock.com/api/4/program');
+    var elemRefresh = document.getElementById('refresh');
+    elemRefresh.onclick = function() { getAllData() };
+    
+    getAllData();
 };
