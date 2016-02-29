@@ -44,11 +44,16 @@ function displayPrograms(o) {
         var elemZones = document.createElement("div");
         elemZones.innerHTML = "";
         for (j = 0; j < o.programs[i].wateringTimes.length; j++){
+            if (o.programs[i].wateringTimes[j].active === true){
             elemZones.innerHTML += o.programs[i].wateringTimes[j].name + "<br>";
+            } else{
+                j += 1
+                }
             }
         elemPrograms.appendChild(elemZones);
     }
 };
+
 
 window.onload = function() { 
     var elemRefresh = document.getElementById('refresh');
