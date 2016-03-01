@@ -45,7 +45,7 @@ function displayPrograms(o) {
         elemZones.innerHTML = "";
         for (j = 0; j < o.programs[i].wateringTimes.length; j++){
             if (o.programs[i].wateringTimes[j].active === true){
-            elemZones.innerHTML += o.programs[i].wateringTimes[j].name + "<br>";
+            elemZones.innerHTML += o.programs[i].wateringTimes[j].name + "   " + "duration:" + o.programs[i].wateringTimes[j].duration + "<br>";
             } else{
                 j += 1
                 }
