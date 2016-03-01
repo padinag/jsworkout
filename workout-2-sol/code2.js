@@ -17,7 +17,7 @@ function getData(url) {
 
 function getAllData() {
     getData('https://private-anon-2ee957f6e-rainmachine.apiary-mock.com/api/4/provision'); 
-    getData('https://192.168.12.155:8080/api/4/program?access_token=5f7e3b1ea8fa3ecaa20607a2988f0a2477d25551db76e8dc3204582b');
+    getData('https://private-anon-2ee957f6e-rainmachine.apiary-mock.com/api/4/program');
 }
 
 function parseResponse(t) {
@@ -45,7 +45,10 @@ function displayPrograms(o) {
         elemZones.innerHTML = "";
         for (j = 0; j < o.programs[i].wateringTimes.length; j++){
             if (o.programs[i].wateringTimes[j].active === true){
-            elemZones.innerHTML += o.programs[i].wateringTimes[j].name + "   " + "duration:" + o.programs[i].wateringTimes[j].duration + "<br>";
+                var sec = o.programs[i].wateringTimes[j].duration;
+                var m = Math.floor(sec / 60);
+                var s = sec % m;
+                elemZones.innerHTML += o.programs[i].wateringTimes[j].name + "   " + "duration:" + " " + m +" "+ ":" + " " + s + "<br>";
             } else{
                 j += 1
                 }
