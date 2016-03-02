@@ -16,8 +16,8 @@ function getData(url) {
 }
 
 function getAllData() {
-    getData('https://192.168.12.155:8080/api/4/provision?access_token=79a47b89a4858f350d53527951831fa96a6363874bfb5933b23c6442'); 
-    getData('https://192.168.12.155:8080/api/4/program?access_token=79a47b89a4858f350d53527951831fa96a6363874bfb5933b23c6442');
+    getData('https://192.168.12.190:8080/api/4/provision?access_token=231f146743cc18062466752bdb6156fe673542def7e473fab385baa8'); 
+    getData('https://192.168.12.190:8080/api/4/program?access_token=231f146743cc18062466752bdb6156fe673542def7e473fab385baa8');
 }
 
 function parseResponse(t) {
@@ -40,7 +40,8 @@ function displayPrograms(o) {
     var elemPrograms = document.getElementById('programs');
     elemPrograms.innerHTML = "";
     for (i = 0; i < o.programs.length; i++){
-        elemPrograms.innerHTML += o.programs[i].name + "<br>";
+        var programDiv = document.createElement('div')
+        programDiv.innerHTML += o.programs[i].name + "<br>";
         var elemZones = document.createElement("div");
         for (j = 0; j < o.programs[i].wateringTimes.length; j++){
             if (o.programs[i].wateringTimes[j].active === true){
@@ -50,7 +51,8 @@ function displayPrograms(o) {
                 elemZones.innerHTML += o.programs[i].wateringTimes[j].name + "   " + "duration:" + " " + m +" "+ ":" + " " + s + "<br>";
                 } 
             }
-        elemPrograms.appendChild(elemZones);
+        elemPrograms.appendChild(programDiv);
+        programDiv.appendChild(elemZones);
     }
 };
 
