@@ -34,13 +34,12 @@ function parseResponse(t) {
 function displayProvision(o) {
     //var elemProvisions = document.getElementById('provision');
     //elemProvisions.innerHTML = o.location.name + '<br>' + o.system.netName;
-    var elemAddress = document.getElementById('provision')
+    var elemAddress = document.getElementById('elemAddress')
     elemAddress.className = 'address'
     elemAddress.innerHTML = o.location.name;
-    var elemDeviceName = document.createElement('div');
+    var elemDeviceName = document.getElementById('elemDeviceName');
     elemDeviceName.className = 'device';
     elemDeviceName.textContent = o.system.netName; 
-    elemAddress.appendChild(elemDeviceName);
 };
 
 function displayPrograms(o) {
@@ -62,10 +61,10 @@ function displayPrograms(o) {
         elemPrograms.appendChild(programDiv);
         programDiv.appendChild(elemZones);
     }
-};
+}
 
 
-window.onload = function() { 
+window.onload = function () { 
     var elemRefresh = document.getElementById('refresh');
     elemRefresh.onclick = function() { getAllData() };
     
