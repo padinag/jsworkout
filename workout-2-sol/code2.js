@@ -45,11 +45,13 @@ function displayProvision(o) {
 function displayPrograms(o) {
     var elemPrograms = document.getElementById('programs');
     elemPrograms.innerHTML = "";
-    for (i = 0; i < o.programs.length; i++){
+     for (i = 0; i < o.programs.length; i++){
         var programDiv = document.createElement('div')
         programDiv.innerHTML += o.programs[i].name + "<br>";
         programDiv.style.float = 'left';
+        programDiv.className = 'programlist'
         var elemZones = document.createElement("div");
+        elemZones.className = "zone"
         for (j = 0; j < o.programs[i].wateringTimes.length; j++){
             if (o.programs[i].wateringTimes[j].active === true){
                 var sec = o.programs[i].wateringTimes[j].duration;
