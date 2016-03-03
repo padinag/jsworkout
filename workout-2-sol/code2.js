@@ -32,8 +32,15 @@ function parseResponse(t) {
 }  
 
 function displayProvision(o) {
-    var elemProvisions = document.getElementById('provision');
-    elemProvisions.innerHTML = o.location.name + '<br>' + o.system.netName;
+    //var elemProvisions = document.getElementById('provision');
+    //elemProvisions.innerHTML = o.location.name + '<br>' + o.system.netName;
+    var elemAddress = document.getElementById('provision')
+    elemAddress.className = 'address'
+    elemAddress.innerHTML = o.location.name;
+    var elemDeviceName = document.createElement('div');
+    elemDeviceName.className = 'device';
+    elemDeviceName.textContent = o.system.netName; 
+    elemAddress.appendChild(elemDeviceName);
 };
 
 function displayPrograms(o) {
@@ -42,6 +49,7 @@ function displayPrograms(o) {
     for (i = 0; i < o.programs.length; i++){
         var programDiv = document.createElement('div')
         programDiv.innerHTML += o.programs[i].name + "<br>";
+        programDiv.style.float = 'left';
         var elemZones = document.createElement("div");
         for (j = 0; j < o.programs[i].wateringTimes.length; j++){
             if (o.programs[i].wateringTimes[j].active === true){
