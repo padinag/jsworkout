@@ -5,5 +5,9 @@ function myMap() {
        zoom: 8
    }
     );
+<<<<<<< HEAD
 }
 window.onload = myMap();
+=======
+}
+>>>>>>> origin/master
