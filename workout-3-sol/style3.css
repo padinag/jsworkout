@@ -1,23 +1,4 @@
-<<<<<<< HEAD
-#map{
-    height:100%;
-=======
-.address{
-    font-size: 25;
-    color: black;
-    
-}
 
-.device {
-    font-size: 20;
-    color: black;
-    padding-top: 20;
-    padding-bottom: 20;
-    background-color: aliceblue;
-    padding-left: 20;
-}
-.programlist {
-    padding-left: 20;
-    padding-right: 20;
->>>>>>> origin/master
+.map{
+    height:100%;
 }
