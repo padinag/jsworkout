@@ -6,3 +6,4 @@ function myMap() {
    }
     );
 }
+window.onload = myMap();
