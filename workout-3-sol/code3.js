@@ -6,6 +6,8 @@ function myMap() {
        zoom: 8
     });
 }
-
+function moreMaps(){
+    additionalMap = new google.maps.Map()
+}
 window.onload = myMap;
 
