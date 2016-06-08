@@ -6,8 +6,23 @@ function myMap() {
        zoom: 8
     });
 }
-function moreMaps(){
-    additionalMap = new google.maps.Map()
-}
 window.onload = myMap;
+
+
+function newCoord() {
+    var longElem = document.getElementById('longitude').value;
+    var latElem = document.getElementById('latitude').value;
+    moremap = new google.maps.Map(document.getElementById('map'),{
+        center: {lat: latElem, lng: longElem},
+        zoom: 8
+    });
+}
+
+newMap = function(){
+    var elemSubmit = document.getElementById('submit');
+    elemSubmit.onclick = newCoord();     
+    newCoord();
+
+}
+
 
